@@ -25,16 +25,18 @@ function writeToLog(operator, prevResult, inputNumber, result) {
 }
 
 function calculateResult(calculationType) {
+  const enteredNumber = getUserNumberInput();
+
   if (
-    calculationType !== 'ADD' &&
-    calculationType !== 'SUBTRACT' &&
-    calculationType !== 'MULTIPLY' &&
-    calculationType !== 'DIVIDE'
+    (calculationType !== 'ADD' &&
+      calculationType !== 'SUBTRACT' &&
+      calculationType !== 'MULTIPLY' &&
+      calculationType !== 'DIVIDE') ||
+    !enteredNumber
   ) {
     return;
   }
 
-  const enteredNumber = getUserNumberInput();
   const initialResult = currentResult; // 계산 전 초기값
   let mathOperator;
 
