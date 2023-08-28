@@ -3,10 +3,17 @@ const MONSTER_ATTACK_VALUE = 13;
 const STRONG_ATTACK_VALUE = 17;
 const HEAL_VALUE = 20;
 
-let chosenMaxLife = 100;
+const enteredValue = prompt('초기값 선택해주세요', '100');
+let chosenMaxLife = parseInt(enteredValue);
+console.log(chosenMaxLife);
+if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
+  chosenMaxLife = 100;
+}
 let currentPlayerHealth = chosenMaxLife;
 let currentMonsterHealth = chosenMaxLife;
 let hasBonusLife = true;
+
+adjustHealthBars(chosenMaxLife);
 
 function reset() {
   currentPlayerHealth = chosenMaxLife;
