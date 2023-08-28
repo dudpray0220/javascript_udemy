@@ -6,10 +6,21 @@ const HEAL_VALUE = 20;
 let chosenMaxLife = 100;
 let currentPlayerHealth = chosenMaxLife;
 let currentMonsterHealth = chosenMaxLife;
+let hasBonusLife = true;
 
 function endRound() {
+  const initialPlayerHealth = currentPlayerHealth;
   const monsterDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= monsterDamage;
+
+  if (currentPlayerHealth <= 0 && hasBonusLife) {
+    hasBonusLife = false;
+    console.log(initialPlayerHealth);
+    removeBonusLife();
+    currentPlayerHealth = initialPlayerHealth;
+    setPlayerHealth(initialPlayerHealth);
+    alert('Bonus Life!');
+  }
 
   if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
     alert('you won!');
@@ -44,7 +55,7 @@ function strongAttackHandler() {
 function healPlayerHandler() {
   let healValue;
   if (currentPlayerHealth > chosenMaxLife - HEAL_VALUE) {
-    alert('최대체력 이상 초과회복 불가');
+    // alert('최대체력 이상 초과회복 불가');
     healValue = chosenMaxLife - currentPlayerHealth;
   } else {
     healValue = HEAL_VALUE;
