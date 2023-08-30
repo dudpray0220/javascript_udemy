@@ -70,3 +70,22 @@ startGameBtn.addEventListener('click', () => {
   console.log(message);
   gameIsRunning = false;
 });
+
+// function test
+const sumUp = (resultHandler, ...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
+  };
+
+  let sum = 0;
+  for (const num of numbers) {
+    sum += validateNumber(num);
+  }
+  resultHandler(sum);
+};
+
+const showResult = (result) => {
+  console.log('result', result);
+};
+
+sumUp(showResult, 2, 3, 'a', 5, 6, 7, 8, 9, 10);
