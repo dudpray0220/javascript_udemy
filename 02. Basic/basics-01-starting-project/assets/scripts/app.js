@@ -1,4 +1,9 @@
 const defaultResult = 0;
+const OPERATOR_ADD = 'ADD';
+const OPERATOR_SUBTRACT = 'SUBTRACT';
+const OPERATOR_MULTIPLY = 'MULTIPLY';
+const OPERATOR_DIVIDE = 'DIVIDE';
+
 let currentResult = defaultResult;
 let logEntries = [];
 
@@ -24,14 +29,14 @@ function writeToLog(operator, prevResult, inputNumber, result) {
   console.log(logEntries);
 }
 
-function calculateResult(calculationType) {
+function calculate(operation) {
   const enteredNumber = getUserNumberInput();
 
   if (
-    (calculationType !== 'ADD' &&
-      calculationType !== 'SUBTRACT' &&
-      calculationType !== 'MULTIPLY' &&
-      calculationType !== 'DIVIDE') ||
+    (operation !== OPERATOR_ADD &&
+      operation !== OPERATOR_SUBTRACT &&
+      operation !== OPERATOR_MULTIPLY &&
+      operation !== OPERATOR_DIVIDE) ||
     !enteredNumber
   ) {
     return;
@@ -40,40 +45,24 @@ function calculateResult(calculationType) {
   const initialResult = currentResult; // 계산 전 초기값
   let mathOperator;
 
-  if (calculationType === 'ADD') {
+  if (operation === OPERATOR_ADD) {
     currentResult += enteredNumber; // 계산 후 값
     mathOperator = '+';
-  } else if (calculationType === 'SUBTRACT') {
+  } else if (operation === OPERATOR_SUBTRACT) {
     currentResult -= enteredNumber;
     mathOperator = '-';
-  } else if (calculationType === 'MULTIPLY') {
+  } else if (operation === OPERATOR_MULTIPLY) {
     currentResult *= enteredNumber;
     mathOperator = '*';
-  } else if (calculationType === 'DIVIDE') {
+  } else if (operation === OPERATOR_DIVIDE) {
     currentResult /= enteredNumber;
     mathOperator = '/';
   }
   createAndWriteLog(mathOperator, initialResult, enteredNumber);
-  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+  writeToLog(operation, initialResult, enteredNumber, currentResult);
 }
 
-function add() {
-  calculateResult('ADD');
-}
-
-function subtract() {
-  calculateResult('SUBTRACT');
-}
-
-function multiple() {
-  calculateResult('MULTIPLY');
-}
-
-function divide() {
-  calculateResult('DIVIDE');
-}
-
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', subtract);
-multiplyBtn.addEventListener('click', multiple);
-divideBtn.addEventListener('click', divide);
+addBtn.addEventListener('click', calculate.bind(this, OPERATOR_ADD));
+subtractBtn.addEventListener('click', calculate.bind(this, OPERATOR_SUBTRACT));
+multiplyBtn.addEventListener('click', calculate.bind(this, OPERATOR_MULTIPLY));
+divideBtn.addEventListener('click', calculate.bind(this, OPERATOR_DIVIDE));
