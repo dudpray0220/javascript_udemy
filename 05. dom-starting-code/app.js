@@ -15,3 +15,16 @@ const listElements = document.getElementsByTagName('li');
 for (const listItem of listElements) {
   console.dir(listItem);
 }
+
+const section = document.querySelector('section');
+const button = document.querySelector('button');
+// section.className = '';
+
+button.addEventListener('click', () => {
+  // if (section.className === 'red-bg visible') {
+  //   section.className = 'red-bg invisible';
+  // } else {
+  //   section.className = 'red-bg visible';
+  // }
+  section.classList.toggle('invisible');
+});
