@@ -67,13 +67,89 @@
 // const arr = [1, 2, 3];
 // console.log(arr.includes(3));
 
-const arr = [1, 2, 3, 4, 5];
-const tax = 0.19;
-const taxArr = [];
+// const arr = [1, 2, 3, 4, 5];
+// const tax = 0.19;
+// const taxArr = [];
+//
+// arr.forEach((price, idx, arr) => {
+//   const taxObject = { idx: idx, taxValue: price * (1 + tax) };
+//   taxArr.push(taxObject);
+// });
+//
+// console.log(taxArr);
 
-arr.forEach((price, idx, arr) => {
-  const taxObject = { idx: idx, taxValue: price * (1 + tax) };
-  taxArr.push(taxObject);
-});
+// const arr = [1, 2, 3, 4, 5];
+// const tax = 0.19;
+//
+// const taxArr = arr.map((price, idx, arr) => {
+//   return { idx: idx, taxValue: price * (1 + tax) };
+// });
+//
+// console.log(arr);
+// console.log(taxArr);
 
-console.log(taxArr);
+// const arr = [10, 5, 3, 2, 7];
+// console.log(arr.sort());
+//
+// const sortArr = arr.sort((a, b) => {
+//   // if (a > b) {
+//   //   return 1;
+//   // } else if (a === b) {
+//   //   return 0;
+//   // } else {
+//   //   return -1;
+//   // }
+//   return a - b;
+// });
+//
+// console.log(sortArr);
+// console.log(arr);
+// console.log(arr.reverse());
+
+// const arr = [10, 5, 3, 2, 7];
+//
+// const filtered = arr.filter((number, idx, arr) => {
+//   return number > 4;
+// });
+// const filtered2 = arr.filter((n) => n > 4);
+// console.log(filtered);
+// console.log(filtered2);
+
+// const arr = [10, 5, 3, 2, 7];
+//
+// const sum = arr.reduce((prevValue, curValue, idx, arr) => {
+//   return prevValue + curValue;
+// }, 0);
+// const sum2 = arr.reduce((prevValue, curValue) => prevValue + curValue, 0);
+// console.log(sum);
+// console.log(sum2);
+
+// const data = 'Bae;Young;Hyun;good;5';
+// const transformed = data.split(';');
+// transformed[transformed.length - 1] = +transformed[transformed.length - 1];
+// console.log(transformed);
+//
+// const nameFragments = ['Max', 'Paul'];
+// const name = nameFragments.join(' ');
+// console.log(name);
+
+// const person = [
+//   { name: 'Max', age: 30 },
+//   { name: 'Bae', age: 28 },
+// ];
+// const copiedPerson = person.map((person) => ({
+//   name: person.name,
+//   age: person.age,
+// }));
+//
+// person[0].age = 19;
+// person.push({ name: 'Anna', age: 25 });
+// console.log(person);
+// console.log(copiedPerson);
+
+const nameData = ['Max', 'Bae', 30, 'Mr'];
+const [firstName, secondName, ...otherData] = nameData;
+
+console.log(firstName);
+console.log(secondName);
+console.log(otherData);
