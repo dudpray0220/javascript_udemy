@@ -147,9 +147,9 @@
 // console.log(person);
 // console.log(copiedPerson);
 
-const nameData = ['Max', 'Bae', 30, 'Mr'];
-const [firstName, secondName, ...otherData] = nameData;
-
-console.log(firstName);
-console.log(secondName);
-console.log(otherData);
+// const nameData = ['Max', 'Bae', 30, 'Mr'];
+// const [firstName, secondName, ...otherData] = nameData;
+//
+// console.log(firstName);
+// console.log(secondName);
+// console.log(otherData);
